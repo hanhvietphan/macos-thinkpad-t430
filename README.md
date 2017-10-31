@@ -1,88 +1,102 @@
-Vanilla MacOSX on T430, almost perfectly with Sierra 12.6!
+Vanilla macOS on T430, almost perfectly with High Sierra 10.13!
 
 
-Credits to Rehabman 
+Credits to ThiagoSchetini & Rehabman 
 
 
-    WORKING =)
-        Intel Hyperthread (8 Threads)
+#### WORKING =)
+        Intel Hyperthread (8 Threads) - Nope, I use the i5 variant.
         Intel TurboBoost (up to 3.2 Ghz)
         Intel SpeedStep 
         CPU HW Monitor (temps, clock and power) 
         RAM DDR3 at 1600mhz
         Intel HD4000 1536MB
-        Brightness (FULL Range + Fn Brightness Keys)
-        Display Port Out FullHD + Audio
+        Brightness (FULL Range + Fn Brightness Keys) <- Test
+        Display Port Out FullHD + Audio <- Test
         Battery Status
-        WiFi + Bluetooth (using a rebranded Atheros Ar5b195)
-        Ethernet 
-        Sleep (with both working sleep leds on/off)
-        Display turns on automatically on wake/instant wake	
+        WiFi (I use an FIND_MODEL Atheros Intel a/b/g/n)
+        Ethernet
+        Sleep (with both working sleep leds on/off) <- Test
+        Display turns on automatically on wake/instant wake	<- Test
         USB 3.0 Full Speed
-        Audio ALC269 (Everything works, even after sleep)
-        Webcam + Mic
-        Keyboard+ TouchPad	
+        Audio ALC269 (Everything works, even after sleep) <- Test
+        Webcam + Mic <- Test?
+        Keyboard + TouchPad <- switch mapping of < and $.
 
 
-    NOT WORKING ...
+#### NOT WORKING ...
         On Shutdown, need to remove USB 3.0 devices otherwise system will restart (USB 2.0 is ok!)
         SSD Trim (disabled. not recommended for OEM SSD’s on MacOSX) 
         VGA output (apple doesn’t have support)
-        SD Card Reader 
+        SD Card Reader <- never tested.
+		No compatible bluetooth hardware. =/
 
 
 
-CREATING INSTALLER
-
-    -> With Unibeast select Sierra UEFI only without ATI/nVidia (look at tools folder)
-    
-    -> After creation of USB Installer go to EFI/CLOVER/drivers64UEFI/
-        Remove everything and put the 4 files this repository
-
-	-> Put all the kexts from 10.12 (or about the version you are trying to make) on other
+#### Creating the installer
+	- You'll need thumbdrive of at least 8 GB, jHFS+ formatted.
 	
-    -> Remove all the kexts folders except other
-
-
-INSTALL MAC OSX
-
-    -> You need a mouse and external keyboard pluged (only for the install process)
+    - Use Unibeast to create the installer. Select UEFI and no ATI/nVidia.
     
-    -> If stucks on boot disable inject intel graphics
+	- After creating the USB Installer go to EFI/CLOVER/drivers64UEFI/
+		Remove everything and put the 4 files this repository (add the apfs.efi if need be)
+	
+	- Put any kexts in EFI/CLOVER/kexts/10.12 etc. into ./other/ and copy the kexts from this
+	  repository into ./other/ as well.
+		- Thus removing all kexts folders except ./other/
+
+
+#### Install macOS
+    - You'll need a mouse and external keyboard plugged in (for the install process).
+    
+	- If you get stuck on boot disable 'InjectIntel' graphics.
+
+##### Install on Fusion Drive (Optional)
+If you have installed an SSD and a HDD in your T430, you can gain the advantages of using a fusion drive. Follow these steps to install on a fusion drive rather than a "regular" drive.
+
+	- Setup Fusion drive according to guides on the internet.
+	
+	- Install macOS on external HDD.
+    
+	- Restore HDD installation to Fusion Drive with Disk Utility on the install disk.
+    
+	- *Alternatively* (never got this to work) do `/Volumes/"Image Volume/Install macOS High Sierra.app"
+    	/Contents/Resources/startosinstall --volume the_target_volume--converttoapfs NO --agreetolicense`
+    	from Terminal instead of regular install.
+    
+	- Boot into new installation on Fusion Drive.
 
 	
-SHOW HIDDEN FILES PLEASE!
-
-	-> after first boot, on Terminal:
-        defaults write com.apple.finder AppleShowAllFiles YES
+#### Show hidden files (optional, but helpful)
+	- After first boot, on Terminal:
+    	defaults write com.apple.finder AppleShowAllFiles YES
 		killAll Finder
 
 
-INSTALL CLOVER (Your EFI Boot)
+#### Install Clover
 
-	-> Install “clover.pkg” (look inside tools folder)
-        Check Install for UEFI Booting Only
-		Check Install Clover in the ESP
-		Check Drivers 64 UEFI (IMPORTANT! only OsxAptioFix2Drv-64)
+	- Install “clover.pkg” (found in repo/tools folder)
+    	Check 'Install for UEFI Booting Only'
+		This will automatically check 'Install Clover in the ESP'
+		Check Drivers 64 UEFI (IMPORTANT! Do only check OsxAptioFix2Drv-64)
 
-	-> Now you can remove your Installer Pen Drive (you have boot)
+	- Now you can remove your Installer Pen Drive (you have boot)
 
 
-EFI/CLOVER
-
-    -> config.plist: use the one from this repository
+#### Configure EFI/Clover
+	- config.plist: use the one from this repository
         take from low-resolution-config.plist folder for 1366x768 display
 		take from high-resolution-config.plist folder for 1600x900 or + display
 
-	-> /drivers64UEFI
+	- /drivers64UEFI
 		use the folder from this repository (with 4 files only!)
 
-	-> /kexts
+	- /kexts
 		Remove everything except other (leave it empty)
 
-	-> /ACPI/patched:
-		(OPTION 1 Hard One - Recommended) Make your own SSDT and DSDT:
-			-> First you need the vanilla .aml generated by your UEFI (BIOS)
+	- /ACPI/patched:
+		(OPTION 1 Difficult - but recommended) Make your own SSDT and DSDT:
+			-> First you'll need the vanilla .aml generated by your UEFI (BIOS)
 				Enter in the clover boot menu and press F4 and FN+F4
 				That’s all. It’s gonna be on EFI/CLOVER/ACPI/origin
 
@@ -118,55 +132,53 @@ EFI/CLOVER
 
 			-> Put the .aml files on the folder: ACPI/patched inside clover UEFI
 
-KEXTS
+#### Kexts
 
-    -> Make a beckup of AppleBacklight.kext (Brightness)
+	- Make a beckup of AppleBacklight.kext (Brightness)
 		Why? for future updates you need to reinstall the original and then reinstall the pached
 
 		** Warning!, the backlight kext inside kexts folder is patched for T430 brightness full range control
 
-	-> Now, install all the kexts from the folder using “Kext Utility.app” (look inside tools folder)
+	- Now, install all the kexts from the folder using “Kext Utility.app” (look inside tools folder)
 	
+#### Voodoo Extra Files (for Keyboard)
 
-VOODOO EXTRA FILES (for Keyboard)
-
-	-> enter inside voodoo's' folder with the terminal
+	- Go to the voodoo's' folder with the terminal
 		sudo cp org.rehabman.voodoo.driver.Daemon.plist /Library/LaunchDaemons
 		sudo cp VoodooPS2Daemon /usr/bin
 
 
-NOW, RESTART AND GET AUDIO WORKING
+#### Restart at get audio working
 
-	-> after restart you need to flush the kexts:
+	- After restarting you need to flush the kexts:
 		sudo touch /System/Library/Extensions && sudo kextcache -u /
-	-> restart again to see the audio working!
+	- Restart again to hear the audio working!
+
+	- Repeat the process if nescessary
+		sudo touch /System/Library/Extensions && sudo kextcache -u /
+	- Restart Again!
+	
+	* If you keep having problems, try disabling the option 'No Cache' in config.plist and restart again.	
 
 
-NO AUDIO YET?
-
-	-> sudo touch /System/Library/Extensions && sudo kextcache -u /
-	-> Restart Again!
-	* If you have problems, try to disable the option No Cache on config.plist and restart again.	
+#### HWMONITOR
+	- Put the HWMONITOR from tools folder in Applications and open it, you should read power, clock, and temps of your CPU
 
 
-HWMONITOR 
-
-	-> Put the HWMONITOR from tools folder on applications and open it, you should read power, clock, and temps of your CPU
-
-
-NO HIBERNATE AT ALL
-
+#### Disable Hibernation
 	-> Disable Hibernation and related options
         sudo pmset -a hibernatemode 0
         sudo rm /var/vm/sleepimage
         sudo mkdir /var/vm/sleepimage
         sudo pmset -a standby 0
         sudo pmset -a autopoweroff 0
+		
+**And that's it! You're done. Hopefully.** =)
 
 
 ABOUT THIS DSDT CODE 
 
-    -> basically I modified some original patches from Rehabman:
+    -> ThiagoSchetini modified some original patches from Rehabman:
 
 			[modified] Lenovo X220 
 				-> added T430 sleep leds
@@ -204,9 +216,9 @@ COMPLETE KEXT FLUSH (recomended after remove a kext)
         sudo touch /System/Library/Extensions && sudo kextcache -u /
 
 
-GENERATE VANILLA CONFIG.PLIST (if you need)
+GENERATE VANILLA CONFIG.PLIST (if you need it)
 
-	on /usr/local/bin/clover-genconfig >config.plist
+	on /usr/local/bin/clover-genconfig > config.plist
 	execute and take the xml
 
 HOW TO FLASH T430 BIOS (if you want to install an 1300AC WiFi …)
