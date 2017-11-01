@@ -1,4 +1,4 @@
-Vanilla macOS on T430, almost perfectly with High Sierra 10.13!
+Vanilla macOS on T430, almost perfectly with High Sierra 10.13.1
 
 
 Credits to ThiagoSchetini & Rehabman 
@@ -224,3 +224,11 @@ GENERATE VANILLA CONFIG.PLIST (if you need it)
 HOW TO FLASH T430 BIOS (if you want to install an 1300AC WiFi …)
 
 https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
+
+### Updating from 10.13.0 to 10.13.1
+	- Downloaded full macOS 10.13.1 from App Store.
+	- Copied kexts and apfs.efi to their respective places in EFI.
+	- Installed macOS 10.13.1
+	- Flushed kext cache to get audio working again.
+		sudo touch /System/Library/Extensions && sudo kextcache -u /
+	- Done!
