@@ -231,4 +231,5 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 	- Installed macOS 10.13.1
 	- Flushed kext cache to get audio working again.
 		sudo touch /System/Library/Extensions && sudo kextcache -u /
-	- Done!
+	- Remove kexts from EFI.
+	- Reboot and voilà. =)
