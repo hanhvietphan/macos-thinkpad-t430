@@ -233,3 +233,11 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 		sudo touch /System/Library/Extensions && sudo kextcache -u /
 	- Remove kexts from EFI.
 	- Reboot and voilà. =)
+
+### Updating from 10.13.1 to 10.13.2
+	- Downloaded newest FakeSMC.kext -> installed in bootloader.
+	- Ran `softwareupdate -i -a`.
+	- Rebooted after installation and chose the Install option in Clover.
+	- Flushed kext cache to get audio working again with KextUtility.
+		- At the same time installed then new FakeSMC.kext.
+	- Reboot and voilà once more. =)
