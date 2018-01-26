@@ -239,7 +239,7 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 	- Ran `softwareupdate -i -a`.
 	- Rebooted after installation and chose the Install option in Clover.
 	- Flushed kext cache to get audio working again with KextUtility.
-		- At the same time installed then new FakeSMC.kext.
+		- At the same time installed the new FakeSMC.kext.
 	- Reboot and voilà once more. =)
 
 ### Updating from 10.13.2 to 10.13.2 Supplemental update
@@ -247,3 +247,9 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 	- Ran `softwareupdate -i -a`.
 	- Rebooted after installation and chose the Install option in Clover.
 	- And voilà! =)
+
+### Updating from 10.13.2 Supplemental update to 10.13.3
+	- Ran `softwareupdate -i -a`.
+	- Rebooted after installation and chose the Install option in Clover.
+	- Flushed kext cache to get audio working again with KextUtility.
+	- Reboot and voilà! =)
