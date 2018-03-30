@@ -225,6 +225,7 @@ HOW TO FLASH T430 BIOS (if you want to install an 1300AC WiFi …)
 
 https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 
+## Updates
 ### Updating from 10.13.0 to 10.13.1
 	- Downloaded full macOS 10.13.1 from App Store.
 	- Copied kexts and apfs.efi to their respective places in EFI.
@@ -264,7 +265,7 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 ### Updating from 10.13.3 Supplemental update to 10.13.4
 	- Ran `softwareupdate -i -a`.
 	- Installed new apfs.efi in /EFI/CLOVER/drivers64UEFI/
-	- Rebooted after installation and chose the Install option in Clover.
+	- Rebooted 2x after installation and automatically chose the Install option in Clover.
 	- Flushed kext cache to get audio working again with KextUtility.
 	- Reboot and voilà! =)
 	- Kept FakeSMC.kext in EFI
