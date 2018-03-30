@@ -260,3 +260,11 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 	- Rebooted after installation and (automatically) chose the Install option in Clover.
 	- Everyting (including sound) worked without a kext cache flush.
 	- And voilà! =)
+
+### Updating from 10.13.3 Supplemental update to 10.13.4
+	- Ran `softwareupdate -i -a`.
+	- Installed new apfs.efi in /EFI/CLOVER/drivers64UEFI/
+	- Rebooted after installation and chose the Install option in Clover.
+	- Flushed kext cache to get audio working again with KextUtility.
+	- Reboot and voilà! =)
+	- Kept FakeSMC.kext in EFI
