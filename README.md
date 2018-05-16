@@ -1,46 +1,46 @@
 Vanilla macOS on T430, almost perfectly with High Sierra 10.13.1
 
 
-Credits to ThiagoSchetini & Rehabman 
+Credits to ThiagoSchetini & Rehabman
 
 
 #### WORKING =)
-        Intel Hyperthread (8 Threads) - Nope, I use the i5 variant.
-        Intel TurboBoost (up to 3.2 Ghz)
-        Intel SpeedStep 
-        CPU HW Monitor (temps, clock and power) 
+        Intel Hyperthread (8 threads) - Nope 4 threads, I use the i5 variant.
+        Intel TurboBoost (up to 3.2 Ghz) - Think so, haven't checked tbh.
+        Intel SpeedStep - Think so, haven't checked tbh.
+        CPU HW Monitor (temps, clock and power)
         RAM DDR3 at 1600mhz
         Intel HD4000 1536MB
-        Brightness (FULL Range + Fn Brightness Keys) <- Test
-        Display Port Out FullHD + Audio <- Test
+        Brightness (FULL Range + Fn Brightness Keys)
+        Display Port Out: FullHD + Audio
         Battery Status
-        WiFi (I use an FIND_MODEL Atheros Intel a/b/g/n)
+        WiFi (I use an Atheros AR5BHB92 [rebranded](https://github.com/ThiagoSchetini/AR9285-rebranding))
         Ethernet
-        Sleep (with both working sleep leds on/off) <- Test
-        Display turns on automatically on wake/instant wake	<- Test
+        Sleep
+        Display turns on automatically on wake/instant wake
         USB 3.0 Full Speed
-        Audio ALC269 (Everything works, even after sleep) <- Test
-        Webcam + Mic <- Test?
+        Audio ALC269
+        Webcam + Mic
         Keyboard + TouchPad <- switch mapping of < and $.
+		Bluetooth: bought and installed this [BT daughter card](https://www.aliexpress.com/item/Free-shipping-New-original-bluetooth-module-4-0-for-Lenovo-Thinkpad-X220-X230-T420-T430-T530/1640038938.html) worked out of the box.
 
 
 #### NOT WORKING ...
         On Shutdown, need to remove USB 3.0 devices otherwise system will restart (USB 2.0 is ok!)
-        SSD Trim (disabled. not recommended for OEM SSD’s on MacOSX) 
-        VGA output (apple doesn’t have support)
+        SSD Trim (Disabled. not recommended for non OEM SSD’s on macOS)
+        VGA output (Apple doesn’t support it)
         SD Card Reader <- never tested.
-		No compatible bluetooth hardware. =/
 
 
 
 #### Creating the installer
 	- You'll need thumbdrive of at least 8 GB, jHFS+ formatted.
-	
+
     - Use Unibeast to create the installer. Select UEFI and no ATI/nVidia.
-    
+
 	- After creating the USB Installer go to EFI/CLOVER/drivers64UEFI/
 		Remove everything and put the 4 files this repository (add the apfs.efi if need be)
-	
+
 	- Put any kexts in EFI/CLOVER/kexts/10.12 etc. into ./other/ and copy the kexts from this
 	  repository into ./other/ as well.
 		- Thus removing all kexts folders except ./other/
@@ -48,25 +48,25 @@ Credits to ThiagoSchetini & Rehabman
 
 #### Install macOS
     - You'll need a mouse and external keyboard plugged in (for the install process).
-    
+
 	- If you get stuck on boot disable 'InjectIntel' graphics.
 
 ##### Install on Fusion Drive (Optional)
 If you have installed an SSD and a HDD in your T430, you can gain the advantages of using a fusion drive. Follow these steps to install on a fusion drive rather than a "regular" drive.
 
 	- Setup Fusion drive according to guides on the internet.
-	
+
 	- Install macOS on external HDD.
-    
+
 	- Restore HDD installation to Fusion Drive with Disk Utility on the install disk.
-    
+
 	- *Alternatively* (never got this to work) do `/Volumes/"Image Volume/Install macOS High Sierra.app"
     	/Contents/Resources/startosinstall --volume the_target_volume--converttoapfs NO --agreetolicense`
     	from Terminal instead of regular install.
-    
+
 	- Boot into new installation on Fusion Drive.
 
-	
+
 #### Show hidden files (optional, but helpful)
 	- After first boot, on Terminal:
     	defaults write com.apple.finder AppleShowAllFiles YES
@@ -103,7 +103,7 @@ If you have installed an SSD and a HDD in your T430, you can gain the advantages
 			-> Them disassembly correctly only the DSDT.aml and DSDT’s.aml (0, 1, 2 etc…)
 				please, don’t open directly on MacIASL!
 				use iasl on terminal (look at tools folder/iasl howTo.txt)
-			
+
 			-> patch your DSDT.dsl with all the code from file “…-dsdt-patch.txt” using MacIASL
 				it includes only the necessary code to Thinkpad T430
 				* choose low resolution for 1366 x 762
@@ -117,16 +117,16 @@ If you have installed an SSD and a HDD in your T430, you can gain the advantages
 				change for (carefull with identation, must be perfect):
 					\_SI._SST (One)
         				\_GPE._L1D ()
-			
+
 			-> Save from MacIASL as binary (.aml) and paste on ACPI/patched inside clover UEFI
 
 			-> Generate your own SSDT (Power Management for your processor)
 				https://www.tonymacx86.com/threads/quick-guide-to-generate-a-ssdt-for-cpu-power-management.177456/
 			-> Put the SSDT.aml on the same folder of DSDT: ACPI/patched inside clover UEFI
-			
+
 
 		(OPTION 2 Easy One - Not recommended) take my patched files .aml:
-	 		->take ONLY the .aml files from “pached ACPI dsl’s” folder 
+	 		->take ONLY the .aml files from “pached ACPI dsl’s” folder
 				* choose only one SSDT.aml: “i5 3230M” or “i7 3632QM”
 				* if you have another processor make your own SSDT or leave it empty
 
@@ -140,7 +140,7 @@ If you have installed an SSD and a HDD in your T430, you can gain the advantages
 		** Warning!, the backlight kext inside kexts folder is patched for T430 brightness full range control
 
 	- Now, install all the kexts from the folder using “Kext Utility.app” (look inside tools folder)
-	
+
 #### Voodoo Extra Files (for Keyboard)
 
 	- Go to the voodoo's' folder with the terminal
@@ -157,8 +157,8 @@ If you have installed an SSD and a HDD in your T430, you can gain the advantages
 	- Repeat the process if nescessary
 		sudo touch /System/Library/Extensions && sudo kextcache -u /
 	- Restart Again!
-	
-	* If you keep having problems, try disabling the option 'No Cache' in config.plist and restart again.	
+
+	* If you keep having problems, try disabling the option 'No Cache' in config.plist and restart again.
 
 
 #### HWMONITOR
@@ -172,20 +172,20 @@ If you have installed an SSD and a HDD in your T430, you can gain the advantages
         sudo mkdir /var/vm/sleepimage
         sudo pmset -a standby 0
         sudo pmset -a autopoweroff 0
-		
+
 **And that's it! You're done. Hopefully.** =)
 
 
-ABOUT THIS DSDT CODE 
+ABOUT THIS DSDT CODE
 
     -> ThiagoSchetini modified some original patches from Rehabman:
 
-			[modified] Lenovo X220 
+			[modified] Lenovo X220
 				-> added T430 sleep leds
 				-> cleaned extra code
 
 			[modified] Brightness fix (HD3000/HD4000)
-				-> included FN brightness keys (T430 only) 
+				-> included FN brightness keys (T430 only)
 
 			[usb] USB3_PRW 0x0D (instant wake)
 				-> to have sleep working (original Rehabman code)
@@ -206,7 +206,7 @@ COMPLETE KEXT FLUSH (recomended after remove a kext)
 
 	-> repair permissions:
         sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /
-	
+
     -> rebuild kext cache
         sudo rm -r /System/Library/Caches/com.apple.kext.caches
         sudo touch /System/Library/Extensions
@@ -269,7 +269,7 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 	- Flushed kext cache to get audio working again with KextUtility.
 	- Reboot and voilà! =)
 	- Kept FakeSMC.kext in EFI
-	
+
 ### Updating from 10.13.4 to 10.13.4 Security Update
 	- Updated apfs.efi
 	- Ran `softwareupdate -i -a`.
