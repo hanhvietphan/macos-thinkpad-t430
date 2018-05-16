@@ -5,31 +5,31 @@ Credits to ThiagoSchetini & Rehabman
 
 
 #### WORKING =)
-        Intel Hyperthread (8 threads) - Nope 4 threads, I use the i5 variant.
-        Intel TurboBoost (up to 3.2 Ghz) - Think so, haven't checked tbh.
-        Intel SpeedStep - Think so, haven't checked tbh.
-        CPU HW Monitor (temps, clock and power)
-        RAM DDR3 at 1600mhz
-        Intel HD4000 1536MB
-        Brightness (FULL Range + Fn Brightness Keys)
-        Display Port Out: FullHD + Audio
-        Battery Status
-        WiFi (I use an Atheros AR5BHB92 [rebranded](https://github.com/ThiagoSchetini/AR9285-rebranding))
-        Ethernet
-        Sleep
-        Display turns on automatically on wake/instant wake
-        USB 3.0 Full Speed
-        Audio ALC269
-        Webcam + Mic
-        Keyboard + TouchPad <- switch mapping of < and $.
-		Bluetooth: bought and installed this [BT daughter card](https://www.aliexpress.com/item/Free-shipping-New-original-bluetooth-module-4-0-for-Lenovo-Thinkpad-X220-X230-T420-T430-T530/1640038938.html) worked out of the box.
+* Intel Hyperthread (8 threads) - Nope 4 threads, I use the i5 variant.
+* Intel TurboBoost (up to 3.2 Ghz) - Think so, haven't checked tbh.
+* Intel SpeedStep - Think so, haven't checked tbh.
+* CPU HW Monitor (temps, clock and power)
+* RAM DDR3 at 1600mhz
+* Intel HD4000 1536MB
+* Brightness (FULL Range + Fn Brightness Keys)
+* Display Port Out: FullHD + Audio
+* Battery Status
+* WiFi (I use an Atheros AR5BHB92 [rebranded](https://github.com/ThiagoSchetini/AR9285-rebranding))
+* Ethernet
+* Sleep
+* Display turns on automatically on wake/instant wake
+* USB 3.0 Full Speed
+* Audio ALC269
+* Webcam + Mic
+* Keyboard + TouchPad <- switch mapping of < and $.
+* Bluetooth: bought and installed this [BT daughter card](https://www.aliexpress.com/item/Free-shipping-New-original-bluetooth-module-4-0-for-Lenovo-Thinkpad-X220-X230-T420-T430-T530/1640038938.html) worked out of the box.
 
 
 #### NOT WORKING ...
-        On Shutdown, need to remove USB 3.0 devices otherwise system will restart (USB 2.0 is ok!)
-        SSD Trim (Disabled. not recommended for non OEM SSD’s on macOS)
-        VGA output (Apple doesn’t support it)
-        SD Card Reader <- never tested.
+* On Shutdown, need to remove USB 3.0 devices otherwise system will restart (USB 2.0 is ok!)
+* SSD Trim (Disabled. not recommended for non OEM SSD’s on macOS)
+* VGA output (Apple doesn’t support it)
+* SD Card Reader <- never tested.
 
 
 
