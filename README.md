@@ -1,7 +1,7 @@
-Vanilla macOS on T430, almost perfectly with High Sierra 10.13.1
+Vanilla macOS on T430, almost perfectly with High Sierra 10.13
 
 
-Credits to ThiagoSchetini & Rehabman
+Credits goes to ThiagoSchetini & Rehabman, thanks bunches!
 
 
 #### WORKING =)
@@ -22,13 +22,13 @@ Credits to ThiagoSchetini & Rehabman
 * Audio ALC269
 * Webcam + Mic
 * Keyboard + TouchPad <- switch mapping of < and $.
-* Bluetooth: bought and installed this [BT daughter card](https://www.aliexpress.com/item/Free-shipping-New-original-bluetooth-module-4-0-for-Lenovo-Thinkpad-X220-X230-T420-T430-T530/1640038938.html) worked out of the box.
+* Bluetooth: bought and installed this [BT daughter card](https://www.aliexpress.com/item/Free-shipping-New-original-bluetooth-module-4-0-for-Lenovo-Thinkpad-X220-X230-T420-T430-T530/1640038938.html) worked out of the box. *Sadly no Handoff*
 
 
 #### NOT WORKING ...
-* On Shutdown, need to remove USB 3.0 devices otherwise system will restart (USB 2.0 is ok!)
-* SSD Trim (Disabled. not recommended for non OEM SSD’s on macOS)
-* VGA output (Apple doesn’t support it)
+* On Shutdown, sometimes need to remove USB devices otherwise system will restart.
+* SSD Trim (Works, but I have disabled it.)
+* VGA output (No support.)
 * SD Card Reader <- never tested.
 
 
@@ -173,10 +173,10 @@ If you have installed an SSD and a HDD in your T430, you can gain the advantages
         sudo pmset -a standby 0
         sudo pmset -a autopoweroff 0
 
-**And that's it! You're done. Hopefully.** =)
+**And that's it! You're done. (Hopefully.)** =)
 
 
-ABOUT THIS DSDT CODE
+#### ABOUT THIS DSDT CODE
 
     -> ThiagoSchetini modified some original patches from Rehabman:
 
@@ -202,7 +202,7 @@ ABOUT THIS DSDT CODE
 			[manual] Code change on .dsl to turn on screen automatically on wake
 
 
-COMPLETE KEXT FLUSH (recomended after remove a kext)
+#### COMPLETE KEXT FLUSH (recomended after remove a kext)
 
 	-> repair permissions:
         sudo /usr/libexec/repair_packages --repair --standard-pkgs --volume /
@@ -216,12 +216,12 @@ COMPLETE KEXT FLUSH (recomended after remove a kext)
         sudo touch /System/Library/Extensions && sudo kextcache -u /
 
 
-GENERATE VANILLA CONFIG.PLIST (if you need it)
+#### GENERATE VANILLA CONFIG.PLIST (if you need it)
 
 	on /usr/local/bin/clover-genconfig > config.plist
 	execute and take the xml
 
-HOW TO FLASH T430 BIOS (if you want to install an 1300AC WiFi …)
+#### HOW TO FLASH T430 BIOS (if you want to install an 1300AC WiFi …)
 
 https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 
