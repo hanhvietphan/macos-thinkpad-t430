@@ -279,6 +279,6 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 ### Updating from 10.13.4 Security Update to 10.13.5
 	- Installed new apfs.efi in /EFI/CLOVER/drivers64UEFI/
 	- Ran `softwareupdate -i -a --restart`.
-	- PENDING Rebooted 2x after installation and automatically chose the Install option in Clover.
-	- PENDING Flushed kext cache to get audio working again with KextUtility.
-	- PENDING Reboot and voilà! =)
+	- Rebooted 2x after installation and automatically chose the Install option in Clover.
+	- Flushed kext cache to get audio working again with KextUtility.
+	- Reboot and voilà! =)
