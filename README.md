@@ -280,7 +280,7 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 	- Installed new apfs.efi in /EFI/CLOVER/drivers64UEFI/
 	- Ran `softwareupdate -i -a --restart`.
 	- Rebooted 2x after installation and automatically chose the Install option in Clover.
-	- Removed BrcmBluetoothInjector from /S/L/E
+	- Removed BrcmBluetoothInjector.kext from /S/L/E
 	- Added and updated the following bluetooth related kexts in /S/L/E
 	    - BrcmFirmwareRepo.kext (updated)
 	    - BrcmNonPatchRAM2.kext (updated)
