@@ -5,9 +5,9 @@ Credits goes to ThiagoSchetini & Rehabman, thanks bunches!
 
 
 #### WORKING =)
-* Intel Hyperthread (8 threads) - Nope 4 threads, I use the i5 variant.
-* Intel TurboBoost (up to 3.2 Ghz) - Think so, haven't checked tbh.
-* Intel SpeedStep - Think so, haven't checked tbh.
+* Intel Hyperthread (4 cores) - I have the i5-3320M.
+* Intel TurboBoost (up to 3.2 Ghz)
+* Intel SpeedStep
 * CPU HW Monitor (temps, clock and power)
 * RAM DDR3 at 1600mhz
 * Intel HD4000 1536MB
@@ -22,7 +22,7 @@ Credits goes to ThiagoSchetini & Rehabman, thanks bunches!
 * Audio ALC269
 * Webcam + Mic
 * Keyboard + TouchPad <- switch mapping of < and $.
-* Bluetooth: bought and installed this [BT daughter card](https://www.aliexpress.com/item/Free-shipping-New-original-bluetooth-module-4-0-for-Lenovo-Thinkpad-X220-X230-T420-T430-T530/1640038938.html) worked out of the box. *Sadly no Handoff*
+* Bluetooth: bought and installed this [BT daughter card](https://www.aliexpress.com/item/Free-shipping-New-original-bluetooth-module-4-0-for-Lenovo-Thinkpad-X220-X230-T420-T430-T530/1640038938.html) worked out of the box. *Sadly no Handoff - yet*
 
 
 #### NOT WORKING ...
