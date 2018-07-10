@@ -287,3 +287,7 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 	    - BrcmPatchRAM2.kext (added)
 	- Flushed kext cache to get audio working again with KextUtility.
 	- Reboot and voilà! =)
+
+### Updating from 10.13.5 to 10.13.6
+	- Installed new apfs.efi in /EFI/CLOVER/drivers64UEFI/
+	- Ran `softwareupdate -i -a --restart`.
