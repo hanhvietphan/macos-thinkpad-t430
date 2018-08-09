@@ -227,26 +227,25 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 
 ## Updates
 
-### Updating from Sierra to High Sierra (10.12.6)
-- Downloaded full macOS 10.13.6 from App Store
-- Backup all kext and update with Install High Sierra.app 
-- Disable default volumes, set timeout 10s (If necessary)
-- If first time boot to volumes update and you are restarted, Please read the instructions below,
-- Copy apfs.efi to /EFI/Clover/drivers64UEFI
-- Boot to windows or use 1 computer running windows
-- Download Clover Iso is [here](https://sourceforge.net/projects/cloverefiboot/files/Bootable_ISO/) (It is "CloverISO-4617.tar.lzma") but you can use 7zip extract to iso
-- Use [rufus](https://rufus.akeo.ie) burn iso to usb
-- Delete all drivers64UEFI in clover and replace drivers64UEFI in this repo
-- Delete all kext except Other and paste all kext in this repo
-- Replace config.plist in this repo
-- Copy apfs.efi to /EFI/Clover/drivers64UEFI
-- Boot to usb and select volumes update
-- Wait and setup be careful because FileVault ask you enable in setup, please disable File Vault.
-- Flushed kext cache to get audio working again.
-		sudo touch /System/Library/Extensions && sudo kextcache -u /
-- Reboot :D
-- Btw, my English don't very well ^^
-
+### Updating from Sierra to High Sierra (10.12.6) (Windows edition)
+	- Downloaded full macOS 10.13.6 from App Store
+	- Copy latest apfs.efi to /EFI/Clover/drivers64UEFI
+	- Backup all kext and update with Install High Sierra.app
+	- Disable default volumes, set timeout 10s (If necessary)
+	- If post update boot fails:
+		Use a windows machine
+		Download Clover Iso [here](https://sourceforge.net/projects/cloverefiboot/files/Bootable_ISO/)
+		Extract with 7zip
+		Use [rufus](https://rufus.akeo.ie) to burn iso to usb
+		Delete all drivers64UEFI in clover and replace drivers64UEFI in this repo
+		Delete all kext except Other and paste all kext in this repo
+		Replace config.plist with the one in this repo
+		Copy apfs.efi to /EFI/Clover/drivers64UEFI
+		Boot to usb and select volumes update
+		Do not enable File Vault during setup.
+	- Flushed kext cache to get audio working again.
+	- sudo touch /System/Library/Extensions && sudo kextcache -u /
+	- Reboot :D
 
 ### Updating from 10.13.0 to 10.13.1
 	- Downloaded full macOS 10.13.1 from App Store.
