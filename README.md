@@ -226,6 +226,27 @@ If you have installed an SSD and a HDD in your T430, you can gain the advantages
 https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 
 ## Updates
+
+### Updating from Sierra to High Sierra (10.12.6) (Windows edition)
+	- Downloaded full macOS 10.13.6 from App Store
+	- Copy latest apfs.efi to /EFI/Clover/drivers64UEFI
+	- Backup all kext and update with Install High Sierra.app
+	- Disable default volumes, set timeout 10s (If necessary)
+	- If post update boot fails:
+		Use a windows machine
+		Download Clover Iso [here](https://sourceforge.net/projects/cloverefiboot/files/Bootable_ISO/)
+		Extract with 7zip
+		Use [rufus](https://rufus.akeo.ie) to burn iso to usb
+		Delete all drivers64UEFI in clover and replace drivers64UEFI in this repo
+		Delete all kext except Other and paste all kext in this repo
+		Replace config.plist with the one in this repo
+		Copy apfs.efi to /EFI/Clover/drivers64UEFI
+		Boot to usb and select volumes update
+		Do not enable File Vault during setup.
+	- Flushed kext cache to get audio working again.
+	- sudo touch /System/Library/Extensions && sudo kextcache -u /
+	- Reboot :D
+
 ### Updating from 10.13.0 to 10.13.1
 	- Downloaded full macOS 10.13.1 from App Store.
 	- Copied kexts and apfs.efi to their respective places in EFI.
@@ -293,3 +314,4 @@ https://github.com/bibanon/Coreboot-ThinkPads/wiki/xx30-BIOS-Whitelist-Removal
 	- Ran `softwareupdate -i -a --restart`.
 	- Flushed kext cache to get audio working again (with KextUtility).
 	- Reboot and everything works againg. =)
+
