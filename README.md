@@ -108,16 +108,18 @@ If you have installed an SSD and a HDD in your T430, you can gain the advantages
 				it includes only the necessary code to Thinkpad T430
 				* choose low resolution for 1366 x 762
 				* choose high resolution for 1600 x 900 or +
-
-			-> manually last patch for screen turn on after wake (Warning! It’s a manual change)
-				on your .dsl find for “Return (WAKI)”
-				On the last two method calls there is:
-					\_SB.PCI0.LPC.EC.LED(Zero, 0x80)
-    					\_SB.PCI0.LPC.EC.LED(0x07, 0x00)
-				change for (carefull with identation, must be perfect):
-					\_SI._SST (One)
-        				\_GPE._L1D ()
-
+				
+			NOTE:I DON'T CHANGE LAST THIS PATCH AND IT WORK WITH ME 	
+			*****************************************************************************************
+			*-> manually last patch for screen turn on after wake (Warning! It’s a manual change)	*
+			*	on your .dsl find for “Return (WAKI)”						*
+			*	On the last two method calls there is:						*
+			*		\_SB.PCI0.LPC.EC.LED(Zero, 0x80)					*
+    			*		\_SB.PCI0.LPC.EC.LED(0x07, 0x00)					*
+			*	change for (carefull with identation, must be perfect):				*
+			*		\_SI._SST (One)								*
+        		*		\_GPE._L1D ()								*
+			*****************************************************************************************
 			-> Save from MacIASL as binary (.aml) and paste on ACPI/patched inside clover UEFI
 
 			-> Generate your own SSDT (Power Management for your processor)
