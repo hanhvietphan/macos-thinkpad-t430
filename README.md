@@ -133,6 +133,13 @@ If you have installed an SSD and a HDD in your T430, you can gain the advantages
 				* if you have another processor make your own SSDT or leave it empty
 
 			-> Put the .aml files on the folder: ACPI/patched inside clover UEFI
+			
+			
+		(OPTION 3: EASIEST with my T430's spec (i5-3320, HD+ 1600x900)
+			-> Copy all folder in EFI to partion EFI system
+				*** EFI include + clover v2.4k r4674 EFI bootloader
+						+ config.plist support 1600x900
+						
 
 #### Kexts
 
