@@ -35,9 +35,9 @@
 		<key>Debug</key>
 		<false/>
 		<key>DefaultVolume</key>
-		<string>Mojave</string>
+		<string></string>
 		<key>Fast</key>
-		<true/>
+		<false/>
 		<key>Legacy</key>
 		<string>PBR</string>
 		<key>NeverHibernate</key>
@@ -65,6 +65,11 @@
 	</array>
 	<key>GUI</key>
 	<dict>
+		<key>Hide</key>
+		<array>
+			<string>Preboot</string>
+		</array>
+
 		<key>Language</key>
 		<string>en:0</string>
 		<key>Mouse</key>
@@ -83,16 +88,16 @@
 			<key>Entries</key>
 			<true/>
 			<key>Legacy</key>
-			<true/>
-			<key>Linux</key>
 			<false/>
+			<key>Linux</key>
+			<true/>
 			<key>Tool</key>
 			<true/>
 		</dict>
 		<key>ScreenResolution</key>
 		<string>1600x900</string>
 		<key>Theme</key>
-		<string>embedded</string>
+		<string>thinkpad</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
@@ -112,9 +117,9 @@
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
-		<key>AppleRTC</key>
+		<key>AppleIntelCPUPM</key>
 		<true/>
-		<key>AsusAICPUPM</key>
+		<key>AppleRTC</key>
 		<true/>
 		<key>Debug</key>
 		<false/>
@@ -124,11 +129,11 @@
 		</array>
 		<key>KernelCpu</key>
 		<false/>
-		<key>KernelHaswellE</key>
-		<false/>
 		<key>KernelLapic</key>
 		<false/>
 		<key>KernelPm</key>
+		<false/>
+		<key>KernelXCPM</key>
 		<false/>
 		<key>KextsToPatch</key>
 		<array>
@@ -139,6 +144,8 @@
 				<data>
 				hBnUEQ==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
@@ -153,6 +160,8 @@
 				<data>
 				hQjsEA==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
@@ -167,11 +176,51 @@
 				<data>
 				gxnUEQ==
 				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
 				<key>Name</key>
 				<string>AppleHDA</string>
 				<key>Replace</key>
 				<data>
 				AAAAAA==
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-DP port HD4000 1600x900</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				BABmAQEDAQEAAAAC
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
+				<key>Replace</key>
+				<data>
+				BABmAQECBAIAAAAE
+				</data>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>HDMI-DP port HD4000 1600x900</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>
+				MAIAAAAAAAABAAAAQAAAAAAAAAABAAAAQAAAAAAAAAAB
+				AAAAQAAAAAAAAAAAAAAA
+				</data>
+				<key>InfoPlistPatch</key>
+				<false/>
+				<key>Name</key>
+				<string>AppleIntelFramebufferCapri</string>
+				<key>Replace</key>
+				<data>
+				MAIAAAIFAAAABAAABwQAAAMEAAAABAAAgQAAAAQGAAAA
+				CAAABgAAAAAAAAAAAgAR
 				</data>
 			</dict>
 		</array>
